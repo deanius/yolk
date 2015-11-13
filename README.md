@@ -34,7 +34,7 @@ function Counter () {
   const minusOne = handleMinus.map(() => -1)
 
   // merge both event streams together and keep a running count of the result
-  const count = plusOne.merge(minusOne).scan((x, y) => x + y, 0).startWith(0)
+  const count = plusOne.merge(minusOne).scan((acc, v) => acc + v, 0).startWith(0)
 
   return (
     <div>
